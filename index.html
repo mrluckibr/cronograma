@@ -14,7 +14,6 @@
             margin: 0;
             padding: 0;
         }
-
         
 
         .container {
@@ -28,6 +27,12 @@
         h1 {
             color: #333;
             text-align: center;
+        }
+
+        h1 img {
+            /* margin-left: 50px; */
+            width: 80px; /* Tamanho do ícone */
+            height: 55px;
         }
         .event {
             margin-bottom: 20px;
@@ -54,7 +59,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cronograma de Eventos - RollerCoin</h1>
+        <h1>Cronograma de Eventos - RollerCoin </h1>
         <div class="event">
             <h2>Desconto TRX 35% acaba em breve</h2>
             <p>Data: 07 de Fevereiro de 2024 </p>
@@ -85,6 +90,7 @@
             <p>Descrição: Momento onde vão lançar a oportunidade de craftar a grande Eclipse Energion de 11.8PH e 5.5% de bônus!</p>
         </div>
 
+        <h1><img src="favicon.ico" alt="Ícone"></h1>
         <footer>
             <a href="https://www.youtube.com/@MrLuckiBR" target="_blank">Canal do YouTube</a>
             <a href="https://discord.gg/vMSk5wsRDA" target="_blank">Discord do Canal</a>
@@ -108,7 +114,8 @@
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
             // Exibindo o tempo restante
-            document.getElementById('countdown').innerHTML = `Tempo restante: ${hours}h ${minutes}m ${seconds}s`;
+            // document.getElementById('countdown').innerHTML = `Tempo restante: ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('countdown').innerHTML = `Evento Finalizado`;
         }
 
         // Função para calcular o tempo restante até as 12 horas do dia especificado
