@@ -64,11 +64,12 @@
         <div class="event">
             <h2>Evento Dia de São Valentim</h2>
             <p>Data: 08 de Fevereiro de 2024</p>
-            <span id="countdown"></span>
+            <span id="countdown6"></span>
             <p>Descrição: Sem novidades ainda, apenas um post engraçado nas redes sociais</p>
+            <a href="https://rollercoin.com/puzzle-event/quests" target="_blank">Saiba mais</a>
         </div>
         <div class="event">
-            <h2>Lunar New Year Burning Event</h2>
+            <h2>Evento de queima do Ano Novo Lunar</h2>
             <p>Data: 09 de Fevereiro de 2024</p>
             <span id="countdown2"></span>
             <p>Descrição: Evento de queimar máquinas e ganhar outras como recompensa!</p>
@@ -119,7 +120,7 @@
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
             // Exibindo o tempo restante
-            // document.getElementById('countdown').innerHTML = `Tempo restante: ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('countdown').innerHTML = `Tempo restante: ${hours}h ${minutes}m ${seconds}s`;
             document.getElementById('countdown').innerHTML = `Soooon`;
         }
 
@@ -147,12 +148,38 @@
             document.getElementById(targetId).innerHTML = `Começa em: ${hours}h ${minutes}m ${seconds}s`;
         }
 
+
+        // Função para calcular o tempo restante até as 12 horas do dia especificado
+        function calculateCountdown3(targetId, targetDate) {
+            const now = new Date();
+            const targetTime = new Date(targetDate);
+            targetTime.setHours(12, 0, 0, 0); // Definindo 12 horas do dia como o alvo
+
+            let timeDiff = targetTime - now; // Diferença de tempo em milissegundos
+
+            if (timeDiff <= 0) {
+                document.getElementById(targetId).innerHTML = `Tempo restante: Evento já ocorreu.`;
+                return;
+            }
+
+            // Calculando horas, minutos e segundos restantes
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            timeDiff -= hours * (1000 * 60 * 60);
+            const minutes = Math.floor(timeDiff / (1000 * 60));
+            timeDiff -= minutes * (1000 * 60);
+            const seconds = Math.floor(timeDiff / 1000);
+
+            // Exibindo o tempo restante
+            document.getElementById(targetId).innerHTML = `Acaba em: ${hours}h ${minutes}m ${seconds}s`;
+        }
+
         // Atualizar o contador a cada segundo
         setInterval(() => {
             calculateCountdown2('countdown2', '2024-02-10');
             calculateCountdown2('countdown3', '2024-02-11');
             calculateCountdown2('countdown4', '2024-02-12');
             calculateCountdown2('countdown5', '2024-02-15');
+            calculateCountdown3('countdown6', '2024-02-15');
         }, 1000);
         
         // Atualizar o contador do primeiro evento a cada segundo
